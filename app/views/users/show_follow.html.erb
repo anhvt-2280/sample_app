@@ -1,0 +1,34 @@
+<% provide :title, t("follow.title_follow") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <span>
+        <%= link_to t("microposts.new.profile"), @user %>
+      </span>
+      <span>
+        <b><%= t "microposts.new.head" %>:</b> <%= @user.microposts.size %>
+      </span>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          <% @users.each do |user| %>
+            <%= link_to gravatar_for(user), user %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render partial: "layouts/partials/user_list_form",
+                   collection: @users, as: :item %>
+      </ul>
+      <%= paginate @users %>
+    <% end %>
+  </div>
+</div>

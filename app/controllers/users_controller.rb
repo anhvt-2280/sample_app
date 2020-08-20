@@ -56,14 +56,6 @@ class UsersController < ApplicationController
     params.require(:user).permit User::USERS_PARAMS_PERMIT
   end
 
-  def load_user
-    @user = User.find_by id: params[:id] if params[:id]
-    return if @user
-
-    flash[:danger] = t "users.show.notice_error"
-    redirect_to root_url
-  end
-
   def admin_user
     redirect_to root_url unless current_user.admin?
   end

@@ -1,9 +1,9 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
+# you"ve limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module SampleApp
@@ -16,7 +16,8 @@ module SampleApp
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "*.{rb,yml}")]
     config.i18n.default_locale = :en
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
