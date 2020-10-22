@@ -19,5 +19,6 @@ module SampleApp
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "*.{rb,yml}")]
     config.i18n.default_locale = :en
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.autoload_paths << Rails.root.join("lib")
   end
 end

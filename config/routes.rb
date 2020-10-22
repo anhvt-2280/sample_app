@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :password_resets, except: %i(index show destroy)
   resources :microposts, only: %i(create destroy)
   resources :relationships, only: %i(create destroy)
+  mount API::Base, at: "/"
 end
