@@ -45,7 +45,7 @@ class User < ApplicationRecord
     end
   end
 
-  def remember_digest
+  def create_remember_digest
     self.remember_token = User.new_token
     update remember_digest: User.digest(remember_token)
   end
