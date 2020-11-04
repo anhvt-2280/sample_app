@@ -13,7 +13,7 @@ validations:
     password_min_length: 6
     size_avatar: 50
     per_page: 10
-    remember: 1
+    remember: "1"
     expire_reset_pass: 2
   post:
     content_length: 144
